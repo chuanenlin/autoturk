@@ -23,13 +23,13 @@ pip install boto
 pip install pillow
 ```
 
-8. Open terminal in the directory where you placed all your photos and enter:
+8. Open terminal in the directory where you have placed all your photos and enter:
 ```
 dir /b /a-d > image.list (for Windows, and remove "image.list" from the list)
 ls > image.list (for Ubuntu)
 ```
 
-9. Move the generated list from Step 8 to your root directory (where you saved create_hits.py and retrieve_hits.py).
+9. Move the generated list from Step 8 to your root directory (where you saved **generate.py** and **retrieve**.py).
 
 ---
 
