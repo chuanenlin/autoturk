@@ -1,6 +1,6 @@
 # Autoturk
 
-Autoturk is Amazon's Mechanical Turk streamlined for batch sending HIT requests. </br>
+Autoturk automates Amazon's Mechanical Turk for batch sending and retrieving HIT requests with .</br>
 
 ## Setting up
 
@@ -109,7 +109,7 @@ ls > labels.list (for Ubuntu)
 3. In **format.py**, change `C:/Users/David/autoturk/labels/labels.list` in line 4 to the local path of your list of label filenames.</br>
 Change `C:/Users/David/autoturk/images/` in line 7 to the local path of the directory who you have placed your images.</br>
 Change `C:/Users/David/autoturk/yolo-labels/` in line 11 to the local path of the directory who you will store your converted annotation files.</br>
-Change `"C:/Users/David/autoturk/labels/` in line 12 to the local path of the directory who you have placed your labels.
+Change `C:/Users/David/autoturk/labels/` in line 12 to the local path of the directory who you have placed your labels.
 
 ---
 
