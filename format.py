@@ -8,7 +8,7 @@ if __name__ == '__main__':
        width, height = im.size
        x_scale = 1./width
        y_scale = 1./height
-       label_file = open("C:/Users/David/autoturk/labels/formatted/" + file_list[i], "a")
+       label_file = open("C:/Users/David/autoturk/yolo-labels/" + file_list[i], "a")
        lines = [line.rstrip('\n') for line in open("C:/Users/David/autoturk/labels/" + file_list[i])]
        num_lines = len(lines)
        for l in range(num_lines):
