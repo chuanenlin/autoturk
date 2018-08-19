@@ -65,7 +65,9 @@ Change `[Your_hit_type]` in line 24 to your HIT's HITType ID.</br>
 2. *(Optional)* If you are using Sandbox mode, change `mechanicalturk.amazonaws.com` in line 16 to `http://mechanicalturk.sandbox.amazonaws.com`.</br>
 Change `https://www.mturk.com/mturk/preview?groupId=` in lines 30 and 31 to `https://workersandbox.mturk.com/mturk/preview?groupId=`.
 
-3. Open terminal in the directory of **generate.py** and enter:
+3. If you are using the normal (non-sandbox) mode, remember to [charge up your account balance](https://requester.mturk.com/account). 
+
+4. Open terminal in the directory of **generate.py** and enter:
 ```
 python generate.py
 ```
