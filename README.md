@@ -6,7 +6,7 @@ autoturk is Amazon's Mechanical Turk streamlined for batch sending HIT requests.
 
 1. Sign up for an [AWS account](https://aws.amazon.com/).
 
-2. Sign up for an [MTurk Requester Account](https://requester.mturk.com/).
+2. Sign up for an [MTurk Requester account](https://requester.mturk.com/).
 
 3. [Link your AWS account to your MTurk account](https://requester.mturk.com/developer).
 
@@ -34,29 +34,30 @@ ls > image.list (for Ubuntu)
 
 ---
 
-## Building
+## Creating HIT template for Bounding Box
 
-3. Install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+You can use MTurk to assign a large variety of HITs. In this section, we will go through how to set up a HIT template for drawing bounding boxes to label images, based on [Kota's bbox annotator](https://github.com/kyamagu/bbox-annotator).
 
-4. In **shutterscrape.py**, change `C:/Users/[username]/[path]` in line 77 to the local path for saving your scraped files.
+1. Sign in to your [MTurk Requester account](http://requester.mturk.com/).
 
-5. *(Optional)* [Configure environment variables paths](https://www.java.com/en/download/help/path.xml) for **python.exe** and **chromedriver.exe**.
+2. Click **Create** > **New Project** > **Other** > **Create Project**.
+
+3. Fill in the required fields and click **Design Layout** > **Source**.</br>
+We recommend setting **Reward per assignment** to *$0.1*, **Number of assignments per HIT** to *1*, **Time allotted per assignment** to *1*, **HIT expires in** to *7*, **Auto-approve and pay Workers in** to *3*, and **Require that Workers be Masters to do your HITs** to *No*.
+
+4. Paste the code in **source.html** into the editor and adjust the description to your needs.
+
+5. Click **Source** (again) > **Save** > **Preview and Finish** > **Finish**.
+
+6. CLick **Create** > **New Batch with an Existing Project** > **[Your project name]** and save the HITType ID and Layout ID strings for later use.
 
 ---
 
 ## Generating
 
-Open terminal in the directory of **shutterscrape.py** and enter:
-```
-python shutterscrape.py
-```
-Go grab a cup of coffee while waiting... oh wait, it's already done!
-
-
 ---
 
 ## Retrieving
-
 
 ---
 
