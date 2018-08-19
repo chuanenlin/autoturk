@@ -1,6 +1,6 @@
-# autoturk
+# Autoturk
 
-autoturk is Amazon's Mechanical Turk streamlined for batch sending HIT requests. </br>
+Autoturk is Amazon's Mechanical Turk streamlined for batch sending HIT requests. </br>
 
 ## Setting up
 
@@ -36,28 +36,60 @@ ls > image.list (for Ubuntu)
 
 ## Creating HIT template for Bounding Box
 
-You can use MTurk to assign a large variety of HITs. In this section, we will go through how to set up a HIT template for drawing bounding boxes to label images, based on [Kota's bbox annotator](https://github.com/kyamagu/bbox-annotator).
+You can use MTurk to assign a large variety of HITs. In this section, I will go through how to set up a HIT template for drawing bounding boxes to label images, based on [Kota's bbox annotator](https://github.com/kyamagu/bbox-annotator).
 
 1. Sign in to your [MTurk Requester account](http://requester.mturk.com/).
 
 2. Click **Create** > **New Project** > **Other** > **Create Project**.
 
 3. Fill in the required fields and click **Design Layout** > **Source**.</br>
-We recommend setting **Reward per assignment** to *$0.1*, **Number of assignments per HIT** to *1*, **Time allotted per assignment** to *1*, **HIT expires in** to *7*, **Auto-approve and pay Workers in** to *3*, and **Require that Workers be Masters to do your HITs** to *No*.
+I recommend setting *Reward per assignment* to *$0.1*, *Number of assignments per HIT* to *1*, *Time allotted per assignment* to *1*, *HIT expires in* to *7*, *Auto-approve and pay Workers in* to *3*, and *Require that Workers be Masters to do your HITs* to *No*.
 
-4. Paste the code in **source.html** into the editor and adjust the description to your needs.
+4. Paste the code in **src.html** into the editor and adjust the description to your needs.
 
 5. Click **Source** (again) > **Save** > **Preview and Finish** > **Finish**.
 
-6. CLick **Create** > **New Batch with an Existing Project** > **[Your project name]** and save the HITType ID and Layout ID strings for later use.
+6. Click **Create** > **New Batch with an Existing Project** > **[Your project name]** and save the HITType ID and Layout ID strings for later use.
 
 ---
 
 ## Generating
 
+1. In **generate.py**, change `C:/Users/David/autoturk/image.list` in line 9 to the local path of your list of image filenames.</br>
+Change `drone-net` of `https://s3.us-east-2.amazonaws.com/drone-net/` in line 12 to your Amazon S3 bucket name where you've uploaded your images.</br>
+Change `[Your_access_key_ID]` in line 14 to your access key ID.</br>
+Change `[Your_secret_access_key]` in line 15 to your secret access key.</br>
+Change `drone` of `LayoutParameter("objects_to_find", "drone")` in line 19 to your object.</br>
+Change `[Your_hit_layout]` in line 22 to your HIT's Layout ID.</br>
+Change `[Your_hit_type]` in line 24 to your HIT's HITType ID.</br>
+
+2. *(Optional)* If you are using Sandbox mode, change `mechanicalturk.amazonaws.com` in line 16 to `http://mechanicalturk.sandbox.amazonaws.com`.</br>
+Change `https://www.mturk.com/mturk/preview?groupId=` in lines 30 and 31 to `https://workersandbox.mturk.com/mturk/preview?groupId=`.
+
+3. Open terminal in the directory of **generate.py** and enter:
+```
+python generate.py
+```
+
 ---
 
 ## Retrieving
+
+1. In **retrieve.py**, change `C:/Users/David/autoturk/hit-id.list` in line 16 to the local path of your generated list of HIT IDs.</br>
+Change `C:/Users/David/autoturk/image.list` in line 17 to the local path of your list of image filenames.</br>
+Change `[Your_access_key_ID]` in line 21 to your access key ID.</br>
+Change `[Your_secret_access_key]` in line 22 to your secret access key.</br>
+Change `C:/Users/David/autoturk/labels/` in line 34 to the local path of the directory in which you plan to save the annotation txt files for each image.</br>
+Change `drone-net` of `https://s3.us-east-2.amazonaws.com/drone-net/` in line 48 to your Amazon S3 bucket name where you've uploaded your images.</br>
+
+2. *(Optional)* If you are using Sandbox mode, change `mechanicalturk.amazonaws.com` in line 23 to `http://mechanicalturk.sandbox.amazonaws.com`.
+
+3. *(Optional)* If you would like to retrieve all annotation txt files at once without visualizing, comment out lines 48 to 61.
+
+4. Open terminal in the directory of **retrieve.py** and enter:
+```
+python retrieve.py
+```
 
 ---
 
