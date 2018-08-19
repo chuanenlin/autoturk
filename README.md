@@ -19,14 +19,13 @@ Remember to link your Sandbox account to your AWS account as well.
 
 7. Open terminal and enter the following lines:
 ```
-cd C:\Python27\Scripts
 pip install boto
-pip install xmltodict
+pip install pillow
 ```
 
 8. Open terminal in the directory where you placed all your photos and enter:
 ```
-dir /b /a-d > image.list (for Windows)
+dir /b /a-d > image.list (for Windows, and remove "image.list" from the list)
 ls > image.list (for Ubuntu)
 ```
 
@@ -90,6 +89,25 @@ Change `drone-net` of `https://s3.us-east-2.amazonaws.com/drone-net/` in line 48
 ```
 python retrieve.py
 ```
+
+---
+
+## Converting for YOLO
+
+In this section, I will go through how to convert the generated annotation txt files to the format in which you can train [YOLO](https://pjreddie.com/darknet/yolo/) on.
+
+1. Create a directory named **yolo-labels** to store your converted annotation files.
+
+2. Open terminal in the directory where you placed all your labels and enter:
+```
+dir /b /a-d > labels.list (for Windows, and remove "labels.list" from the list)
+ls > labels.list (for Ubuntu)
+```
+
+3. In **format.py**, change `C:/Users/David/autoturk/labels/labels.list` in line 4 to the local path of your list of label filenames.</br>
+Change `C:/Users/David/autoturk/images/` in line 7 to the local path of the directory who you have placed your images.</br>
+Change `C:/Users/David/autoturk/yolo-labels/` in line 11 to the local path of the directory who you will store your converted annotation files.</br>
+Change `"C:/Users/David/autoturk/labels/` in line 12 to the local path of the directory who you have placed your labels.
 
 ---
 
