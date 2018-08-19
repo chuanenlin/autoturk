@@ -29,7 +29,7 @@ dir /b /a-d > image.list (for Windows, and remove "image.list" from the list)
 ls > image.list (for Ubuntu)
 ```
 
-9. Move the generated list from Step 8 to your root directory (where you saved **generate.py** and **retrieve**.py).
+9. Move the generated list from Step 8 to your root directory (where you saved **generate.py** and **retrieve.py**).
 
 ---
 
